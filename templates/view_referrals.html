@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% include 'navbar.html'%}
+
+<div class="container-fluid" style="text-align:center ; margin-top:10px ;">
+    <div class="container"><h5> &nbsp;<i class="fa fa-heart" aria-hidden="true"></i>Referrals</h5></div>
+    <hr style="background-color: black;">
+  </div>
+<hr>
+
+{% if Ref %}
+<ul class="list-group" style="text-align: center;">
+    {% for r in Ref %}
+    <li class="list-group-item"><a href="{% url 'build' r.Build.id %}">Build worth {{r.Build.total_price}} ₹  reffered by {{r.From}} </a><a href="{% url 'del_ref' r.id %}" style="color: red;margin-left:50px">delete</a></li>
+    {% endfor%}
+  </ul>
+{% else %}
+<div style="text-align: center;">
+    <p style="color: red;"> You don't have any refferals</p>
+</div>
+{% endif %}
+
+{% endblock content %}

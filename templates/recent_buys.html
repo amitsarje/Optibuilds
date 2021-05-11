@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% include 'navbar.html'%}
+
+<div class="container-fluid" style="text-align:center ; margin-top:10px ;">
+    <div class="container"><h3> &nbsp;<i class="fa fa-heart" aria-hidden="true"></i>Recent Buys <span style="font-size: large;"><a href="{% url 'view_ref' %}">Referrals&nbsp;<span class="badge badge-dark">{{ref_count}}</span></a></span> </h3> </div>
+    <hr style="background-color: black;">
+  </div>
+<hr>
+<ul class="list-group" style="text-align: center;">
+    {% for r in recents %}
+    <li class="list-group-item"><a href="{% url 'build' r.id %}">Build worth {{r.total_price}} ₹ </a> by {{r.user}}</li>   
+    {% endfor%}
+  </ul>
+
+  
+  <div style="margin-top: 450px;">
+    {% include 'footer.html'%}
+</div>
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% include 'navbar.html'%}
+
+<div class="container-fluid" style="text-align:center ; margin-top:10px ;">
+    <div class="container"><h5> &nbsp; Enter Username </h5></div>
+    <hr style="background-color: black;">
+  </div>
+<hr>
+
+{% if messages %}
+
+<div class="alert alert-danger" style="text-align: center;">
+    {% for message in messages%}
+        {{message}}
+    {% endfor%}
+</div>
+
+{% endif %}
+<form class="form-inline" action="{% url 'refer' b.id %}" method="POST" style="margin-left:600px">
+    {% csrf_token %}
+    <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+    <div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">@</div>
+      </div>
+      <input type="text" class="form-control" id="inlineFormInputGroupUsername2" name="username" placeholder="Username">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Refer</button>
+  </form>
+
+
+  <div style="margin-top: 450px;">
+      {% include 'footer.html'%}
+  </div>
+{% endblock content %}

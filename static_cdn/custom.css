@@ -1,0 +1,138 @@
+.card-body{
+    max-width: max-content;
+}
+
+
+
+
+.carousel-item-next.carousel-item-left,
+.carousel-item-prev.carousel-item-right {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.carousel-item-next,
+.active.carousel-item-right {
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100% 0);
+}
+
+.carousel-item-prev,
+.active.carousel-item-left {
+-webkit-transform: translate3d(0,-100%, 0);
+        transform: translate3d(0,-100%, 0);
+}
+
+.rounded-circle{
+    transform: rotate(90deg);    
+}
+
+.carousel-control-prev{
+    position: absolute;
+    width: 50px;
+    
+    left: 80%; 
+}
+
+
+.carousel-control-next{
+    position: absolute;
+    width: 50px;
+}
+
+.container{
+    max-width: 400px;
+}
+
+#c-0{
+    position: absolute;
+    top: 790px;
+    left: 650px;
+}
+
+input[type=text] {
+    border: 3px solid grey;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+input[type=submit]{
+    border: none;
+    background-color: #4d4d4d; /* Green */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+      
+}
+
+
+input[type=submit]:hover{
+    
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      
+}
+
+
+input[type=text]:focus {
+    border: 3px solid #555;
+  }
+
+#c-1{
+    position: absolute;
+    left: 15px;
+    top: 230px; 
+}
+
+#c-2{
+    position: absolute;
+    left: 1300px;
+    top: 200px;
+}
+
+#c-3{
+    position: absolute;
+    left: 35px;
+    top: 360px;
+}
+#c-4{
+    position: absolute;
+    left: 1370px;
+    top: 400px;
+}
+#c-5{
+    position: absolute;
+    left: 1350px;
+    top: 330px;
+}
+#c-6{
+    position: absolute;
+    left: 35px;
+    top: 490px;
+}
+#c-7{
+    position: absolute;
+    left: 50px;
+    top: 640px;
+}
+#c-8{
+    position: absolute;
+    left: 1330px;
+    top: 670px;
+}
+#c-9{
+    position: absolute;
+    left: 1380px;
+    top: 590px;
+}
+#c-10{
+    position: absolute;
+    left: 1380px;
+    top: 510px;
+}
+

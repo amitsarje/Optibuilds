@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+{% load crispy_forms_tags %}
+{%block content %}
+    {% include 'navbar.html'%}
+    <hr>
+
+    {% if messages%}
+        {% for m in messages%}
+        {% if 'error' in m.tags%}
+        <div class="alert alert-danger" role="alert" style="text-align: center;">
+        {{m}}
+        </div>
+        {% else%}
+        <div class="alert alert-success" role="alert" style="text-align: center;">
+            {{m}}
+        </div>
+        {% endif%}
+        {%endfor%}
+     {% endif %}
+     <div class="loginform">
+        <form method="POST"  action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="form-group" style="padding:40px 60px 40px 60px  ">
+              {{form|crispy}}
+              <div><button type="submit" class="btn btn-primary" class="form-control"  style="margin-left:40%;margin-right:50% ;margin-top:10px;"><h5>Login</h5></button></div>
+              <div class="container" style="text-align:center;margin-top:10px">
+                <p>Don't have an account? <a href="{% url 'register' %}"><span>Signup</span></a> here</p>
+              </div>
+            </div>
+            
+        </form>
+       
+     </div>
+     
+     <div  style="margin-top: 100px;">
+     {% include 'footer.html'%}
+    </div>
+{% endblock content %}

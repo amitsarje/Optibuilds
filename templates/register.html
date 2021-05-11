@@ -1,0 +1,16 @@
+
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{%block content %}
+      {% include 'navbar.html'%}
+      <div class="container">
+        <form  method="POST"  action="{% url 'register' %}">
+            {% csrf_token %}
+            <div class="form-group" style="padding:40px 60px 40px 60px  ">
+                {{rform|crispy}}
+              <div><button type="submit" class="btn btn-primary" class="form-control"  style="margin-left:40%;margin-right:50% ;margin-top:10px;"><h5>Register</h5></button></div>
+            </div>
+        </form>
+      </div>
+      {% include 'footer.html'%}
+{% endblock content %}

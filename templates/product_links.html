@@ -1,0 +1,144 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content%}
+
+{% include 'navbar.html' %}
+
+
+<div class="row" >
+     <div class="col-md-4">
+        <div class="card">
+            <img class="card-img-top" src="{{processor.img}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Processor</h5>
+              <p class="card-text">{{processor.name|truncatechars:20}}</p>
+              <p class="card-text">Price : {{processor.price}} Rs</p>
+              <a href="{{processor.url}}" class="btn btn-primary">Link to buy</a>
+            </div>
+          </div>
+
+     </div>
+     <div class="col-md-4">
+        <div class="card" >
+            <img class="card-img-top" src="{{keyboard.img}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Keyboard</h5>
+              <p class="card-text">{{keyboard.name|truncatechars:20}}</p>
+              <p class="card-text">Price : {{keyboard.price}} Rs</p>
+              <a href="{{keyboard.url}}" class="btn btn-primary">Link to buy</a>
+            </div>
+          </div>
+
+     </div>
+
+     <div class="col-md-4">
+        <div class="card" >
+            <img class="card-img-top" src="{{ram.img}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">RAM</h5>
+              <p class="card-text">{{ram.name|truncatechars:20}}</p>
+              <p class="card-text">Price : {{ram.price}} Rs</p>
+
+              <a href="{{ram.url}}" class="btn btn-primary">Link to Buy</a>
+            </div>
+          </div>
+     </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card" >
+            <img class="card-img-top" src="{{gpu.img}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">GPU</h5>
+              <p class="card-text">{{gpu.name|truncatechars:20}}</p>
+              <p class="card-text">Price : {{gpu.price}} Rs</p>
+              <a href="{{gpu.url}}" class="btn btn-primary">Link to Buy</a>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img class="card-img-top" src="{{psu.img}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Power Supply Unit</h5>
+              <p class="card-text">{{psu.name|truncatechars:20}}</p>
+              <p class="card-text">Price : {{psu.price}} Rs</p>
+              <a href="{{psu.url}}" class="btn btn-primary">Link to Buy</a>
+            </div>
+          </div>
+
+    </div>
+
+    <div class="col-md-4">
+        <div class="card" >
+            <img class="card-img-top" src="{{lcs.img}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Cooling</h5>
+              <p class="card-text">{{lcs.name|truncatechars:20}}</p>
+              <p class="card-text">Price : {{lcs.price}} Rs</p>
+              <a href="{{lcs.url}}" class="btn btn-primary">Link to Buy</a>
+            </div>
+          </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card" >
+            <img class="card-img-top" src="{{monitor.img}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Monitor</h5>
+              <p class="card-text">{{monitor.name|truncatechars:20}}</p>
+              <p class="card-text">Price : {{monitor.price}} Rs</p>
+              <a href="{{monitor.url}}" class="btn btn-primary">Link to Buy</a>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" >
+            <img class="card-img-top" src="{{case.img}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Case</h5>
+              <p class="card-text">{{case.name|truncatechars:20}}</p>
+              <p class="card-text">Price : {{case.price}} Rs</p>
+              <a href="{{case.url}}" class="btn btn-primary">Link to Buy</a>
+            </div>
+          </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <img class="card-img-top" src="{{mouse.img}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Mouse</h5>
+              <p class="card-text">{{mouse.name|truncatechars:20}}</p>
+              <p class="card-text">Price : {{mouse.price}} Rs</p>
+              <a href="{{mouse.url}}" class="btn btn-primary">Link to Buy</a>
+            </div>
+          </div>
+    </div>
+
+</div>
+
+<div style="text-align:center;" >
+  
+   
+      <ul class="list-group">
+        <li class="list-group-item"> <h3>Total Price : <span style="color: red;">{{total_price}} ₹</span></h3> </li>
+      </ul>
+     
+  </div>
+  
+ 
+
+<div class="container" style="text-align: center;margin-top:10px ">
+    <a href="{% url 'add_to_fav' id %}">
+    <button class="btn" style="background-color:#2980b9;color:white"> Add to Favourites</button>
+    </a>
+</div>
+
+
+{% endblock content %}

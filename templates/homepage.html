@@ -1,0 +1,194 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content%}
+{% include 'navbar.html'%}
+<div class="container-fluid main" style="height: 200px;color:white ; text-align:center ;padding-top:50px">
+    <h3 style="font-family: 'Times New Roman', Times, serif;"> Optimized PC build in your budget</h3>
+
+</div>
+{% if not data %}
+<div class="container" style="margin-top: 20px;">
+    <form  class="form-inline" action="{% url 'algo' %}" method="POST"  style="margin: 0 50px 0px 200px;">
+        {% csrf_token %}
+        <input class="form-control" type="text" name ="price" placeholder="Enter price" >
+        <select name="type" id="" class="form-control" style="margin-left: 10px;">
+            <option value="">Select type</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Trading">Trading</option>
+        </select>
+        <button class="btn btn-secondary" style=" background-color:#2980b9 ; margin-left:10px">Search</button>
+    </form>
+</div>
+{%endif%}
+
+
+{% if data %}
+<form id="main" action="{% url 'build' 0 %}" method="POST">
+    {%csrf_token %}
+<div class="row" style="margin:100px 50px 0 50px"> 
+    <div class="col-md-2">
+    <div class="container" id="b-1" >
+        <div class="card short" style="padding:0px">
+         <div class="card-title" style="height: 10px; text-align:center">PSU</div>
+            <div class="card-body" style="padding-bottom:5px ; padding-top:10px">
+                <select class="form-control" name="psu" id=""> 
+                   
+                {% for p in PSU%}
+                    <option value="{{p.id}}">{{p.name|truncatechars:15}}</option>
+                {% endfor%}
+                    </select>
+            </div>
+        </div>  
+    </div>
+    
+    
+    <div class="container" id="b-2" style="margin-top:40px ;">
+         <div class="card short" style="padding:0px">
+         <div class="card-title" style="height: 10px; text-align:center">Cooling</div>
+            <div class="card-body" style="padding-bottom:5px ; padding-top:10px">
+                <select class="form-control" name="cooling" id=""> 
+                    
+                {% for l in LCS %}
+                    <option value="{{l.id}}">{{l.name|truncatechars:15}}</option>
+                {% endfor%}
+                    </select>
+            </div>
+        </div>  
+       
+    </div>
+    
+    <div class="container" id="b-3" style="margin-top: 40px;">
+        <div class="card short">
+            <div class="card-title" style="height: 10px; text-align:center">Processor</div>
+               <div class="card-body" style="padding-bottom:0px">
+                   <select class="form-control" name="processor" id=""> 
+                       
+                   {% for p in Processor%}
+                       <option value="{{p.id}}">{{p.name|truncatechars:15}}</option>
+                   {% endfor%}
+                       </select>
+               </div>
+           </div>  
+    </div>
+    <div class="container" id="b-4" style="margin-top: 70px;">
+        <div class="card short">
+            <div class="card-title" style="height: 10px; text-align:center">GPU</div>
+               <div class="card-body" style="padding-bottom:0px">
+                   <select class="form-control" name="gpu" id=""> 
+                       
+                   {% for g in Graphics %}
+                       <option value="{{g.id}}">{{g.name|truncatechars:15}}</option>
+                   {% endfor%}
+                       </select>
+               </div>
+           </div>  
+    </div>
+    </div>
+    
+    <div class="col-md-8" style="max-height: 100%;">
+     <img  class="img-fluid" src="{% static 'main_img.png'%}" alt="">
+    </div>
+    
+    <div class="col-md-2">
+    <div class="container" id="b-5" style="margin-top: -25px;">
+        <div class="card short">
+            <div class="card-title" style="height: 10px; text-align:center">Case</div>
+               <div class="card-body" style="padding-bottom:0px;padding-top:10px">
+                   <select class="form-control" name="case" id=""> 
+                       
+                   {% for c in Case %}
+                       <option value="{{c.id}}">{{c.name|truncatechars:15}}</option>
+                   {% endfor%}
+                       </select>
+               </div>
+           </div>  
+    </div>
+    <div class="container" id="b-6" style="margin-top: 20px;">
+        <div class="card short">
+            <div class="card-title" style="height: 10px; text-align:center">RAM</div>
+               <div class="card-body" style="padding-bottom:0px;padding-top:10px">
+                   <select class="form-control" name="ram" id=""> 
+                       
+                   {% for r in RAM %}
+                       <option value="{{r.id}}">{{r.name|truncatechars:15}}</option>
+                   {% endfor%}
+                       </select>
+               </div>
+           </div>  
+    </div>
+    <div class="container" id="b-7" style="margin-top: 20px;">
+        <div class="card short">
+            <div class="card-title" style="height: 10px; text-align:center">Monitor</div>
+               <div class="card-body" style="padding-bottom:0px;padding-top:10px">
+                   <select class="form-control" name="monitor" id=""> 
+                       
+                   {% for m in Monitor%}
+                       <option value="{{m.id}}">{{m.name|truncatechars:15}}</option>
+                   {% endfor%}
+                       </select>
+               </div>
+           </div>  
+    </div>
+    <div class="container" id="b-8" style="margin-top: 20px;">
+        <div class="card short">
+            <div class="card-title" style="height: 10px; text-align:center">Mouse</div>
+               <div class="card-body" style="padding-bottom:0px;padding-top:10px">
+                   <select class="form-control" name="mouse" id=""> 
+                       
+                   {% for m in Mouse %}
+                       <option value="{{m.id}}">{{m.name|truncatechars:15}}</option>
+                   {% endfor%}
+                       </select>
+               </div>
+           </div>  
+    </div>
+    <div class="container" id="b-9" style="margin-top: 20px;">
+        <div class="card short">
+            <div class="card-title" style="height: 10px; text-align:center">SSD</div>
+               <div class="card-body" style="padding-bottom:0px;padding-top:10px">
+                   <select class="form-control" name="ssd" id=""> 
+                       
+                   {% for h in Harddisk %}
+                       <option value="{{h.id}}">{{h.name|truncatechars:15}}</option>
+                   {% endfor%}
+                       </select>
+               </div>
+           </div>  
+    </div>
+    
+    
+    <div class="container" id="b-10" style="margin-top: 20px;">
+        <div class="card short">
+            <div class="card-title" style="height: 10px; text-align:center">Keyboard</div>
+               <div class="card-body" style="padding-bottom:0px ;padding-top:10px">
+                   <select class="form-control" name="keyboard" id=""> 
+                   {% for k in Keyboard %}
+                       <option value="{{k.id}}">{{k.name|truncatechars:15}}</option>
+                   {% endfor%}
+                       </select>
+               </div>
+           </div>  
+       
+    </div>
+    
+    
+    </div>
+</div>
+
+</form>
+
+
+<div class="container" style="text-align: center;margin-top:100px ; margin-bottom:200px">
+    <button class="btn btn-primary" type="submit" form="main">Proceed</button>
+</div>  
+{% endif %}
+
+
+
+<div style="margin-top: 350px;">
+    {% include 'footer.html'%}
+
+</div>
+    
+{% endblock %}

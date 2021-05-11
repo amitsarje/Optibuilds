@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% include 'navbar.html'%}
+
+<div class="container-fluid" style="text-align:center ; margin-top:10px ;">
+    <div class="container"><h5> &nbsp;<i class="fa fa-heart" aria-hidden="true"></i>My Favourites </h5></div>
+    <hr style="background-color: black;">
+  </div>
+<hr>
+
+{% if messages %}
+<div class="alert alert-success" style="text-align: center;">
+  {% for message in messages %}
+  {{message}}
+  {% endfor%}
+</div>
+
+{% endif %}
+{% if Fav %}
+<ul class="list-group" style="text-align: center;">
+    {% for f in Fav%}
+    <li class="list-group-item"><a href="{% url 'build' f.Build.id %}">Build worth {{f.Build.total_price}} ₹ </a> <a href="{% url 'refer' f.Build.id %}" style="color: green;margin-left:100px">Refer</a> <a href="{% url 'del_fav' f.id %}" style="color: red;margin-left:10px">delete</a></li>
+    {% endfor%}
+  </ul>
+{% else %}
+<div style="text-align: center;">
+  <p style="color: red;">* You haven't added any Favourites yet</p>
+</div>
+{% endif %}
+
+
+
+<div style="margin-top: 450px;">
+  {% include 'footer.html'%}
+</div>
+{% endblock content %}
